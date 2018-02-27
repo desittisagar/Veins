@@ -1,28 +1,10 @@
-//
-// Copyright (C) 2011 David Eckhoff <eckhoff@cs.fau.de>
-//
-// Documentation for these modules is at http://veins.car2x.org/
-//
-// This program is free software; you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation; either version 2 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with this program; if not, write to the Free Software
-// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-//
+
 
 #include "veins/modules/application/ieee80211p/BaseWaveApplLayer.h"
 
 const simsignalwrap_t BaseWaveApplLayer::mobilityStateChangedSignal = simsignalwrap_t(MIXIM_SIGNAL_MOBILITY_CHANGE_NAME);
 const simsignalwrap_t BaseWaveApplLayer::parkingStateChangedSignal = simsignalwrap_t(TRACI_SIGNAL_PARKING_CHANGE_NAME);
-
+//simtime_t dp[10];
 void BaseWaveApplLayer::initialize(int stage) {
     BaseApplLayer::initialize(stage);
 
@@ -265,14 +247,13 @@ void BaseWaveApplLayer::handleSelfMsg(cMessage* msg) {
     switch (msg->getKind()) {
     case SEND_BEACON_EVT: {
         BasicSafetyMessage* bsm = new BasicSafetyMessage();
-        cout<<"beacon"<<endl;
         populateWSM(bsm);
 
 
-        if(myId !=7 && myId !=8)
-             bsm->setRID(mobility->getRoadId().c_str());
+        if(myId !=7 && myId!=8 && myId!=9 && myId!=10 && myId!=11)
+             bsm->setRid(mobility->getRoadId().c_str());
         else
-             bsm->setRID("RSU");
+             bsm->setRid("RSU");
 
 
         sendDown(bsm);

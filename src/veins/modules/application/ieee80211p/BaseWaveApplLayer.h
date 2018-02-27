@@ -38,6 +38,8 @@ using Veins::AnnotationManager;
 using Veins::TraCIMobilityAccess;
 using Veins::AnnotationManagerAccess;
 using namespace std;
+
+//simtime_t dp[10];
 //#define DBG_APP std::cerr << "[" << simTime().raw() << "] " << getParentModule()->getFullPath() << " "
 
 #ifndef DBG_APP
@@ -70,6 +72,8 @@ class BaseWaveApplLayer : public BaseApplLayer {
             SEND_BEACON_EVT,
             SEND_WSA_EVT
         };
+        int fl[10]={0};
+
 
     protected:
 
@@ -176,7 +180,9 @@ class BaseWaveApplLayer : public BaseApplLayer {
         Coord curSpeed;
         int myId;
         int mySCH;
+        //simtime_t dp[10];
 
+  //      vector<struct neighbour> v;
         /* stats */
         uint32_t generatedWSMs;
         uint32_t generatedWSAs;

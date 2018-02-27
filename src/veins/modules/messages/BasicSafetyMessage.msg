@@ -33,7 +33,6 @@ packet BasicSafetyMessage extends WaveShortMessage {
 	double x;
 	double y;
 	//Coord v;
-	int b;
 	double SF;
 	string rid;
 }

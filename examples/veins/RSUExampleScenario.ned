@@ -25,4 +25,13 @@ network RSUExampleScenario extends Scenario
         rsu1[1]: RSU {
             @display("p=213,113;i=veins/sign/yellowdiamond;is=vs");
         }
+        rsu2[1]: RSU {
+            @display("p=97,143;i=veins/sign/yellowdiamond;is=vs");
+        }
+        rsu3[1]: RSU {
+            @display("p=177,165;i=veins/sign/yellowdiamond;is=vs");
+        }
+        rsu4[1]: RSU {
+            @display("p=63,113;i=veins/sign/yellowdiamond;is=vs");
+        }
 }
